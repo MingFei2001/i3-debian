@@ -1,5 +1,7 @@
 # I3 Debian Installation Script
 
+**!!Still Work In Progress!!**
+
 This repository contains a script for installing essential components needed for a functional desktop environment on a Debian-based system. It installs a minimal setup including the i3 window manager, utilities, and other essential software. The script also handles cleanup after installation.
 
 ## Components
