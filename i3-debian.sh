@@ -7,8 +7,7 @@
 #  _/ / ___/ /_____/ /_/ /  __/ /_/ / / /_/ / / / /
 # /___//____/     /_____/\___/_.___/_/\__,_/_/ /_/
 # =======================================================
-# Author: [Your Name]
-# Date: [Current Date]
+# Author: Tham Ming Fei
 # Description: This script installs essential components
 # for a functional desktop environment and performs cleanup.
 # =======================================================
