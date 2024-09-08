@@ -17,42 +17,42 @@ LOGFILE="install_log.txt"
 
 # Define a list of essential components
 COMPONENTS=(
-    "i3" 
-    "dmenu" 
-    "kitty" 
-    "lightdm" 
-    "lightdm-gtk-greeter" 
-    "pipewire" 
-    "pipewire-audio-client-libraries" 
-    "pipewire-pulse" 
-    "thunar" 
-    "firefox" 
-    "xclip" 
-    "xrandr" 
-    "arandr" 
-    "picom" 
-    "nitrogen" 
+    "xorg"
+    "i3"
+    "dmenu"
+    "kitty"
+    "lightdm"
+    "pipewire"
+    "pipewire-pulse"
+    "wireplumber"
+    "thunar"
+    "firefox-esr"
+    "xclip"
+    "arandr"
+    "picom"
     "network-manager"
+    "ffmpeg"
 )
 
 # Function to display the menu
 show_menu() {
     clear
-    echo "========================================="
-    echo "          Installation Menu              "
-    echo "========================================="
-    echo "1. Install all components"
+    echo "========================================"
+    echo "      I3 Debian Installtion Script       "
+    echo "========================================"
+    echo "1. Install now"
     echo "2. Exit"
-    echo "========================================="
+    echo "========================================"
     echo -n "Choose an option: "
 }
 
 # Function to install components
 install_components() {
+    echo "========================================" | tee -a "$LOGFILE"
     echo "Starting installation..." | tee -a "$LOGFILE"
     for COMPONENT in "${COMPONENTS[@]}"; do
         echo "Installing $COMPONENT..." | tee -a "$LOGFILE"
-        if sudo apt install -y $COMPONENT >> "$LOGFILE" 2>&1; then
+        if sudo apt install -y "$COMPONENT" >> "$LOGFILE" 2>&1; then
             echo "$COMPONENT installation successful." | tee -a "$LOGFILE"
         else
             echo "Error installing $COMPONENT. Check $LOGFILE for details." | tee -a "$LOGFILE"
@@ -61,12 +61,18 @@ install_components() {
     echo "Installation complete." | tee -a "$LOGFILE"
 }
 
+setting_up() {
+    sudo systemctl enable lightdm
+    systemctl --user --now enable wireplumber.service
+}
+
 # Function to perform cleanup
 perform_cleanup() {
     echo "Performing cleanup..." | tee -a "$LOGFILE"
     sudo apt autoremove -y >> "$LOGFILE" 2>&1
     sudo apt clean >> "$LOGFILE" 2>&1
     echo "Cleanup complete." | tee -a "$LOGFILE"
+    echo "========================================" | tee -a "$LOGFILE"
 }
 
 # Main loop
@@ -78,15 +84,17 @@ while true; do
             read -p "Are you sure you want to install all components? (y/n): " CONFIRM
             if [[ $CONFIRM == [Yy] ]]; then
                 install_components
+                setting_up
                 perform_cleanup
-                echo "All components installed and cleanup completed."
+                echo "All components installed and cleanup completed." | tee -a "$LOGFILE"
+                echo "Please reboot now" | tee -a "$LOGFILE"
             else
-                echo "Installation aborted."
+                echo "Installation aborted." | tee -a "$LOGFILE"
             fi
             break
             ;;
         2)
-            echo "Exiting..."
+            echo "Exiting ..." | tee -a "$LOGFILE"
             exit 0
             ;;
         *)
