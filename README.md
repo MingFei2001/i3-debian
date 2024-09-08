@@ -37,13 +37,9 @@ cd i3-debian
 bash install.sh
 ```
 ## Script Overview
-- **Header:** Includes ASCII art and script information.
 - **Component Installation:** Installs a predefined list of essential components.
 - **Error Handling:** Logs installation details and errors to install_log.txt.
 - **Cleanup:** Performs cleanup of unnecessary packages and cache after installation.
-
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request if you have suggestions or improvements.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
