@@ -8,22 +8,21 @@ This repository contains a script for installing essential components needed for
 
 | Component | Description |
 |-----------|-------------|
-| **i3**    | Lightweight tiling window manager |
+| **xorg** ||
+| **i3** | Lightweight tiling window manager |
 | **dmenu** | Application launcher |
 | **kitty** | Terminal emulator |
-| **lightdm**         | Display manager |
-| **lightdm-gtk-greeter** | GTK greeter for LightDM |
+| **lightdm** | Display manager |
 | **pipewire** | Modern audio server |
-| **pipewire-audio-client-libraries** | Client libraries for PipeWire |
 | **pipewire-pulse** | PulseAudio replacement for PipeWire |
+| **wireplumber** ||
 | **thunar** | File manager |
-| **firefox** | Web browser |
+| **firefox-esr** | Web browser |
 | **xclip** | Clipboard utility |
-| **xrandr** | Screen resolution manager |
 | **arandr** | GUI for xrandr |
 | **picom** | Compositor |
-| **nitrogen** | Wallpaper manager |
 | **network-manager** | Network management tool |
+| **ffmpeg** ||
 
 ## Installation
 
@@ -32,13 +31,10 @@ This repository contains a script for installing essential components needed for
 git clone https://github.com/your-username/i3-debian.git
 cd i3-debian
 ```
-2. **Make the Script Executable**
+2. Run the Script
 ```bash
-chmod +x install_script.sh
-```
-3. Run the Script
-```bash
-./install_script.sh
+# use bash or any POSIX compliance shell
+bash install.sh
 ```
 ## Script Overview
 - **Header:** Includes ASCII art and script information.

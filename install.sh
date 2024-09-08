@@ -62,6 +62,7 @@ install_components() {
 }
 
 setting_up() {
+    # Work In Progress
     sudo systemctl enable lightdm
     systemctl --user --now enable wireplumber.service
 }
