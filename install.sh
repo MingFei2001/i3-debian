@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # =======================================================
 #     _________       ____       __    _
 #    /  _/__  /      / __ \___  / /_  (_)___ _____
@@ -21,16 +20,9 @@ COMPONENTS=(
     "i3"
     "dmenu"
     "kitty"
-    "lightdm"
-    "pipewire"
-    "pipewire-pulse"
-    "wireplumber"
-    "thunar"
-    "firefox-esr"
-    "xclip"
+    "xclip" # or clipman if this doesn't work
     "arandr"
     "picom"
-    "network-manager"
     "ffmpeg"
 )
 
@@ -63,8 +55,6 @@ install_components() {
 
 setting_up() {
     # Work In Progress
-    sudo systemctl enable lightdm
-    systemctl --user --now enable wireplumber.service
 }
 
 # Function to perform cleanup
