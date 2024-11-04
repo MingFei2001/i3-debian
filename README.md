@@ -1,6 +1,6 @@
 ## I3 Debian Installation Script
 
-!!⚠️ Work In Progress⚠️!!
+!!⚠️ Work In Progress⚠️ !!
 <!-- TODO: add a screenshot -->
 ![Screenshot of the script](#)
 A streamlined script for installing i3 window manager and essential utilities on top of a Debian XFCE netinstall base. This project aims to provide a minimal yet functional i3 environment while leveraging the stable foundation of XFCE's system services.
